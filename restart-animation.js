@@ -6,9 +6,10 @@
 // isso pode ser útil para você poder comparar um mesmo código usando
 // jQuery e usando "vanilla" JavaScript (JavaScript "puro")
 
-
 // se tivermos jQuery, usa-lo
 if (typeof $ !== 'undefined') {
+
+        
   // pega o elemento que contém o texto com a intro do filme
   let $introTextEl = $('.flow > pre');
 
@@ -28,6 +29,8 @@ if (typeof $ !== 'undefined') {
     setTimeout(function() {
       $introTextEl.addClass('reading-animation');
       $introTextEl.css('visibility', 'visible');
+            audio.currentTime = 0;
+            audio.play();
     }, 0);
   });
 }
@@ -54,7 +57,12 @@ else {
       setTimeout(function() {
         introTextEl.classList.add('reading-animation');
         introTextEl.style.visibility = 'visible';
+          audio.currentTime = 0;
+            audio.play();
       }, 0);
     }
   });
+
+        
 }
+

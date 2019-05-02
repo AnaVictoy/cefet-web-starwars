@@ -1,14 +1,9 @@
-// Seu javascript aqui :)
-// Use a Star Wars API: https://swapi.co/
-// para fazer uma requisição assíncrona e:
-//  - Pegar a lista de filmes (AJAX) e preencher no HTML
-//  - Quando um filme for clicado, exibir sua introdução
 $( document ).ready(function() {
     let ultimoFilme = localStorage.getItem("ultimoFilme");
-    if(ultimoFilme==null) ultimoFilme="4/";   
+    if(ultimoFilme==null) ultimoFilme="4/";
     pegaFilme(ultimoFilme);
 });
-var audio = new Audio("cortado1.ogg"); 
+var audio = new Audio("cortado1.ogg");
 
 audio.onended = function() {
     playAudio()
@@ -17,7 +12,7 @@ audio.onended = function() {
 function playAudio() {
     audio.currentTime = 0;
     audio.play();
-} 
+}
 
 let botoes=document.getElementsByClassName("episodio");
 for (let i = 0; i < botoes.length; i++) {
@@ -39,10 +34,9 @@ function pegaFilme(link){
         else if(result.episode_id==5) numero="V";
         else if(result.episode_id==6) numero="VI";
         else if(result.episode_id==7) numero="VII";
-        
+
         let titulo= "Episode "+numero+"\n" +result.title.toUpperCase();
         $(".reading-animation")[0].innerText=titulo+"\n\n"+result.opening_crawl;
+        playAudio();
     }});
-     playAudio();
 }
-
